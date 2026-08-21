@@ -10,7 +10,7 @@ import (
 
 var (
 	errRBnoinit = errors.New("RingBuffer not initialized")
-	errRBinited = errors.New("RingBuffer already initialized!")
+	errRBinited = errors.New("RingBuffer already initialized!") //revive:disable:error-strings
 	errRBempty  = errors.New("RingBuffer is empty")
 	errRBfull   = errors.New("RingBuffer is full")
 )

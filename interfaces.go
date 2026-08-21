@@ -46,6 +46,7 @@ type SimpleRingBuffer[T comparable] interface {
 	Put(item T) error // Put item into RB
 	Get() (T, error)  // Retrieve item from RB
 	Count() int       // Count of items in the RB queue
+	Cap() int
 	IsEmpty() bool
 	IsFull() bool
 }

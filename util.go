@@ -30,6 +30,11 @@ func absDiff(l, r BufSizeT) BufSizeT {
 	return (l - r)
 }
 
+type noCopy struct{}
+
+func (x *noCopy) Lock()   {}
+func (x *noCopy) Unlock() {}
+
 // func main() {
 // 	fmt.Println(roundUp(15))
 // 	fmt.Println(roundUp(23))

@@ -4,6 +4,8 @@
 
 package ringbuffer
 
+// import "unsafe"
+
 // An RBItem supports more efficient clone operations
 type RBItem[T comparable] interface {
 	PreAlloc(numItems BufSizeT) (newBlock T)
@@ -15,7 +17,7 @@ type RBItem[T comparable] interface {
 type rbItem[T comparable] struct {
 	value T      // DATA
 	flags uint64 // bits: 0=writable, 1=readable, 2=write ok, 3=read ok
-	_     [cacheLinePad - 8 - 8]byte
+	_     [cacheLinePad - 8 - /*unsafe.Sizeof(*(*T)(nil))*/ 8]byte
 }
 
 type rbItemData[T comparable] struct {
