@@ -16,4 +16,5 @@ type RBflags uint64
 const (
 	RB_Overlapped RBflags = 1 << (31 - iota)
 	RB_Full
+	RB_Closed
 )
